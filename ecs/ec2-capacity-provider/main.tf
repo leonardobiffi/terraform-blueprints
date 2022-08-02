@@ -61,7 +61,7 @@ module "ecs_cluster" {
 
 module "ecs_service" {
   source  = "leonardobiffi/ecs-service/aws"
-  version = "0.0.3"
+  version = "1.1.0"
 
   name = local.name
 
