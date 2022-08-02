@@ -1,0 +1,14 @@
+module "security_group" {
+  source  = "terraform-aws-modules/security-group/aws"
+  version = "~> 4.9"
+
+  name        = "${local.name}-rds"
+  description = "Security group for RDS"
+  vpc_id      = var.vpc_id
+
+  ingress_cidr_blocks = var.ingress_cidr_blocks
+  ingress_rules       = var.ingress_rules
+  egress_rules        = var.egress_rules
+
+  tags = local.tags
+}
