@@ -50,7 +50,7 @@
 | <a name="input_cpu"></a> [cpu](#input\_cpu) | The amount of CPU to use in task | `number` | `256` | no |
 | <a name="input_desired_count"></a> [desired\_count](#input\_desired\_count) | The desired count of the service | `number` | `1` | no |
 | <a name="input_env"></a> [env](#input\_env) | The environment to use | `string` | n/a | yes |
-| <a name="input_environment"></a> [environment](#input\_environment) | The environment variables to use in Container | `list(map(string))` | n/a | yes |
+| <a name="input_environment"></a> [environment](#input\_environment) | The environment variables to use in Container | `list(map(string))` | `[]` | no |
 | <a name="input_health_check_grace_period_seconds"></a> [health\_check\_grace\_period\_seconds](#input\_health\_check\_grace\_period\_seconds) | The health check grace period seconds to use in Service | `number` | `0` | no |
 | <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | The instance type to use in AutoScalingGroup | `string` | n/a | yes |
 | <a name="input_log_retention_days"></a> [log\_retention\_days](#input\_log\_retention\_days) | The number of days to keep logs | `number` | `7` | no |
@@ -62,7 +62,7 @@
 | <a name="input_region"></a> [region](#input\_region) | The AWS region to use | `string` | `"us-east-1"` | no |
 | <a name="input_scaling_target_capacity"></a> [scaling\_target\_capacity](#input\_scaling\_target\_capacity) | The target capacity of AutoScalingGroup in Cluster. 0 to 100 | `number` | `100` | no |
 | <a name="input_schedule_tag"></a> [schedule\_tag](#input\_schedule\_tag) | The tag to use to schedule start and stop of the service | `map(string)` | `{}` | no |
-| <a name="input_secret"></a> [secret](#input\_secret) | The environment variables from parameter store to use in Container | `list(map(string))` | n/a | yes |
+| <a name="input_secret"></a> [secret](#input\_secret) | The environment variables from parameter store to use in Container | `list(map(string))` | `[]` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Additional tags to use | `map(string)` | `{}` | no |
 | <a name="input_target_group_arn"></a> [target\_group\_arn](#input\_target\_group\_arn) | The arn of the target group to point at the service containers. | `string` | n/a | yes |
 | <a name="input_target_port"></a> [target\_port](#input\_target\_port) | The target port exposed in the container | `number` | n/a | yes |

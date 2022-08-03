@@ -34,6 +34,7 @@ module "alb" {
   http_tcp_listener_rules = var.http_tcp_listener_rules
   https_listeners         = var.https_listeners
   https_listener_rules    = var.https_listener_rules
+  extra_ssl_certs         = var.extra_ssl_certs
 
   tags = local.tags
 }

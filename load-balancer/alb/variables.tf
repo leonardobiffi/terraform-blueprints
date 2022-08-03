@@ -1,12 +1,18 @@
-variable "region" {
-  description = "The AWS region to use"
-  type        = string
-  default     = "us-east-1"
-}
+# REQUIRED
 
 variable "app" {
   description = "The name of the app"
   type        = string
+}
+
+variable "vpc_id" {
+  type        = string
+  description = "The VPC ID to use"
+}
+
+variable "subnets" {
+  type        = list(string)
+  description = "The subnets to use"
 }
 
 variable "env" {
@@ -17,6 +23,14 @@ variable "env" {
 variable "target_groups" {
   type        = any
   description = "The target groups to use"
+}
+
+# OPTIONAL
+
+variable "region" {
+  description = "The AWS region to use"
+  type        = string
+  default     = "us-east-1"
 }
 
 variable "http_tcp_listeners" {
@@ -43,14 +57,10 @@ variable "https_listener_rules" {
   default     = []
 }
 
-variable "vpc_id" {
-  type        = string
-  description = "The VPC ID to use"
-}
-
-variable "subnets" {
-  type        = list(string)
-  description = "The subnets to use"
+variable "extra_ssl_certs" {
+  description = "A list of maps describing any extra SSL certificates to apply to the HTTPS listeners. Required key/values: certificate_arn, https_listener_index (the index of the listener within https_listeners which the cert applies toward)."
+  type        = list(map(string))
+  default     = []
 }
 
 variable "tags" {
