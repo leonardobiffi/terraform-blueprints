@@ -1,8 +1,4 @@
-variable "region" {
-  type        = string
-  description = "The AWS region to use"
-  default     = "us-east-1"
-}
+# Required
 
 variable "app" {
   type        = string
@@ -14,6 +10,19 @@ variable "env" {
   description = "The environment to use"
 }
 
+# Optional
+variable "region" {
+  type        = string
+  description = "The AWS region to use"
+  default     = "us-east-1"
+}
+
+variable "policy" {
+  type        = string
+  description = "The policy to apply to the bucket"
+  default     = null
+}
+
 variable "force_destroy" {
   type        = bool
   description = "Whether to force destroy"
@@ -23,6 +32,31 @@ variable "force_destroy" {
 variable "lifecycle_rule" {
   description = "The lifecycle rule to use"
   type        = list(any)
+  default     = []
+}
+
+variable "block_public_acls" {
+  type        = bool
+  description = "Whether to block public acls"
+  default     = true
+}
+  
+variable "block_public_policy" {
+  type        = bool
+  description = "Whether to block public policy"
+  default     = true
+}
+
+variable "ignore_public_acls" {
+  type        = bool
+  description = "Whether to ignore public acls"
+  default     = true
+}
+
+variable "restrict_public_buckets" {
+  type        = bool
+  description = "Whether to restrict public buckets"
+  default     = true
 }
 
 variable "tags" {
