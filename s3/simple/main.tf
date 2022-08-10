@@ -22,11 +22,12 @@ module "s3" {
   source  = "terraform-aws-modules/s3-bucket/aws"
   version = "3.3.0"
 
-  bucket          = local.name
-  force_destroy   = var.force_destroy
-  lifecycle_rule  = var.lifecycle_rule
-  attach_policy   = true
-  policy          = var.policy
+  bucket         = local.name
+  force_destroy  = var.force_destroy
+  lifecycle_rule = var.lifecycle_rule
+
+  attach_policy = true
+  policy        = var.policy
 
   # S3 bucket-level Public Access Block configuration
   block_public_acls       = var.block_public_acls

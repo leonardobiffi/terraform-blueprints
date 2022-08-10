@@ -11,6 +11,7 @@ variable "env" {
 }
 
 # Optional
+
 variable "region" {
   type        = string
   description = "The AWS region to use"
@@ -40,7 +41,7 @@ variable "block_public_acls" {
   description = "Whether to block public acls"
   default     = true
 }
-  
+
 variable "block_public_policy" {
   type        = bool
   description = "Whether to block public policy"
