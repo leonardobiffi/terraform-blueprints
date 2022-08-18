@@ -3,6 +3,11 @@ output "vpc_id" {
   value       = var.vpc_id
 }
 
+output "security_group_id" {
+  description = "Security Group ID"
+  value       = module.security_group_elb.security_group_id
+}
+
 output "elb_arn" {
   description = "The ARN of the ELB"
   value       = module.alb.lb_arn

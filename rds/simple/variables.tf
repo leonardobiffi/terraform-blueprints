@@ -122,6 +122,24 @@ variable "skip_final_snapshot" {
   default     = false
 }
 
+variable "maintenance_window" {
+  description = "The RDS maintenance window to use"
+  type        = string
+  default     = "Sun:00:00-Sun:03:00"
+}
+
+variable "backup_window" {
+  description = "The RDS backup window to use"
+  type        = string
+  default     = "03:00-06:00"
+}
+
+variable "schedule_tag" {
+  description = "The tag to use to schedule start and stop of the service"
+  type        = map(string)
+  default     = {}
+}
+
 variable "tags" {
   description = "Additional tags to use"
   type        = map(string)

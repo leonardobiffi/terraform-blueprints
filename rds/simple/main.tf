@@ -20,7 +20,7 @@ locals {
 
 module "rds" {
   source  = "terraform-aws-modules/rds/aws"
-  version = "4.4.0"
+  version = "5.0.3"
 
   identifier = local.name
 
@@ -38,8 +38,8 @@ module "rds" {
 
   vpc_security_group_ids = [module.security_group.security_group_id]
 
-  maintenance_window = "Sun:00:00-Sun:03:00"
-  backup_window      = "03:00-06:00"
+  maintenance_window = var.maintenance_window
+  backup_window      = var.backup_window
 
   # DB subnet group
   create_db_subnet_group = true
@@ -58,5 +58,5 @@ module "rds" {
   create_db_option_group = false
   option_group_name      = var.option_group_name
 
-  tags = local.tags
+  tags = merge(local.tags, var.schedule_tag)
 }

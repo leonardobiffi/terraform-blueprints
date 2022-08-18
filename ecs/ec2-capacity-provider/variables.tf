@@ -123,6 +123,18 @@ variable "secret" {
   default     = []
 }
 
+variable "ingress_cidr_blocks" {
+  description = "The ingress cidr blocks to use in Service"
+  type        = list(string)
+  default     = []
+}
+
+variable "source_security_group_ids" {
+  description = "The source security group IDs to use in Service"
+  type        = list(string)
+  default     = []
+}
+
 variable "schedule_tag" {
   description = "The tag to use to schedule start and stop of the service"
   type        = map(string)

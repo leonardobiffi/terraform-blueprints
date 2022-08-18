@@ -1,8 +1,4 @@
-variable "region" {
-  description = "The AWS region to use"
-  type        = string
-  default     = "us-east-1"
-}
+# Required
 
 variable "app" {
   description = "The name of the app"
@@ -13,9 +9,38 @@ variable "env" {
   description = "The environment to use"
   type        = string
 }
+
 variable "origin" {
   description = "The origin to use in the CloudFront distribution"
   type        = any
+}
+
+variable "default_cache_behavior" {
+  description = "The default cache behavior to use in the CloudFront distribution"
+  type        = any
+}
+
+variable "ordered_cache_behavior" {
+  description = "The ordered cache behavior to use in the CloudFront distribution"
+  type        = list(any)
+}
+
+variable "subdomain" {
+  description = "The subdomain to use"
+  type        = string
+}
+
+variable "domain_name" {
+  description = "The domain name to use"
+  type        = string
+}
+
+# Optional
+
+variable "region" {
+  description = "The AWS region to use"
+  type        = string
+  default     = "us-east-1"
 }
 
 variable "create_origin_access_identity" {
@@ -42,24 +67,10 @@ variable "origin_access_identities" {
   default     = {}
 }
 
-variable "default_cache_behavior" {
-  description = "The default cache behavior to use in the CloudFront distribution"
+variable "custom_error_response" {
+  description = "One or more custom error response elements"
   type        = any
-}
-
-variable "ordered_cache_behavior" {
-  description = "The ordered cache behavior to use in the CloudFront distribution"
-  type        = list(any)
-}
-
-variable "subdomain" {
-  description = "The subdomain to use"
-  type        = string
-}
-
-variable "domain_name" {
-  description = "The domain name to use"
-  type        = string
+  default     = {}
 }
 
 variable "acm_certificate_arn" {

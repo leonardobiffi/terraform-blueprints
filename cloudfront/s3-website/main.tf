@@ -39,6 +39,7 @@ module "cloudfront" {
   origin                 = var.origin
   default_cache_behavior = var.default_cache_behavior
   ordered_cache_behavior = var.ordered_cache_behavior
+  custom_error_response  = var.custom_error_response
 
   viewer_certificate = {
     acm_certificate_arn = var.acm_certificate_arn

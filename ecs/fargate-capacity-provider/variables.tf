@@ -91,12 +91,6 @@ variable "secret" {
   default     = []
 }
 
-variable "schedule_tag" {
-  description = "The tag to use to schedule start and stop of the service"
-  type        = map(string)
-  default     = {}
-}
-
 variable "fargate_capacity_weight" {
   description = "The weight of the Fargate capacity provider strategy"
   type        = number
@@ -119,6 +113,24 @@ variable "fargate_spot_capacity_base" {
   description = "The base of the Fargate spot capacity provider strategy"
   type        = number
   default     = null
+}
+
+variable "ingress_cidr_blocks" {
+  description = "The ingress cidr blocks to use in Service"
+  type        = list(string)
+  default     = []
+}
+
+variable "source_security_group_ids" {
+  description = "The source security group IDs to use in Service"
+  type        = list(string)
+  default     = []
+}
+
+variable "schedule_tag" {
+  description = "The tag to use to schedule start and stop of the service"
+  type        = map(string)
+  default     = {}
 }
 
 variable "tags" {
