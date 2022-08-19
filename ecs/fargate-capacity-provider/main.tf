@@ -36,7 +36,7 @@ module "ecs_cluster" {
 
   cluster_settings = {
     "name" : "containerInsights",
-    "value" : local.container_insights
+    "value" : var.container_insights
   }
 
   # Capacity provider

@@ -175,6 +175,12 @@ variable "task_role_arn" {
   default     = null
 }
 
+variable "container_insights" {
+  description = "Whether to enable container insights. Valid values are enabled or disabled."
+  type        = string
+  default     = "disabled"
+}
+
 variable "schedule_tag" {
   description = "The tag to use to schedule start and stop of the service"
   type        = map(string)

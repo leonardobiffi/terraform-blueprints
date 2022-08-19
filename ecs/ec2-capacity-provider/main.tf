@@ -7,8 +7,7 @@ terraform {
 }
 
 locals {
-  name               = "${var.env}-${var.app}"
-  container_insights = var.env == "PRD" ? "enabled" : "disabled"
+  name = "${var.env}-${var.app}"
 
   tags = merge(
     {
@@ -36,7 +35,7 @@ module "ecs_cluster" {
 
   cluster_settings = {
     "name" : "containerInsights",
-    "value" : local.container_insights
+    "value" : var.container_insights
   }
 
   # Capacity provider - autoscaling groups
