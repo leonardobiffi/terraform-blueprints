@@ -1,4 +1,4 @@
-# ECS Task Definition Role
+# ECS Task Execution Role
 data "aws_iam_policy_document" "ecs_tasks_execution_role" {
   statement {
     actions = ["sts:AssumeRole"]

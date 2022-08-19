@@ -42,7 +42,7 @@ module "policy" {
   source  = "terraform-aws-modules/iam/aws//modules/iam-policy"
   version = "5.3.0"
 
-  name   = local.name
+  name   = "${local.name}-policy"
   path   = "/"
   policy = data.aws_iam_policy_document.policy.json
 

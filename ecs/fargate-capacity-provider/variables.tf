@@ -73,6 +73,48 @@ variable "cpu" {
   default     = 256
 }
 
+variable "autoscaling_min_capacity" {
+  description = "Min Capacity in Autoscaling"
+  type        = number
+  default     = 1
+}
+
+variable "autoscaling_max_capacity" {
+  description = "Max Capacity in Autoscaling"
+  type        = number
+  default     = 1
+}
+
+variable "autoscaling_enabled" {
+  description = "Whether to enable autoscaling"
+  type        = bool
+  default     = false
+}
+
+variable "autoscaling_cpu_target_value" {
+  description = "The CPU target value in Autoscaling"
+  type        = number
+  default     = null
+}
+
+variable "autoscaling_memory_target_value" {
+  description = "The memory target value in Autoscaling"
+  type        = number
+  default     = null
+}
+
+variable "scale_in_cooldown" {
+  description = "The scale in cooldown in Autoscaling"
+  type        = number
+  default     = 120
+}
+
+variable "scale_out_cooldown" {
+  description = "The scale out cooldown in Autoscaling"
+  type        = number
+  default     = 120
+}
+
 variable "log_retention_days" {
   description = "The number of days to keep logs"
   type        = number
