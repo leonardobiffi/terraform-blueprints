@@ -1,0 +1,7 @@
+.terraform*
+.terraform.tfstate*
+variables.auto.tfvars
+
+.vscode
+.idea
+.DS_Store
