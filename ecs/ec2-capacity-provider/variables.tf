@@ -135,10 +135,10 @@ variable "source_security_group_ids" {
   default     = []
 }
 
-variable "task_role_arn" {
-  description = "The short name or full Amazon Resource Name (ARN) of the IAM role that containers in this task can assume"
-  type        = string
-  default     = null
+variable "iam_role_policies" {
+  description = "The IAM role policies to use in Service"
+  type        = map(string)
+  default     = {}
 }
 
 variable "schedule_tag" {

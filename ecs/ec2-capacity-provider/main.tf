@@ -99,7 +99,6 @@ module "ecs_task_definition" {
   memory             = var.memory
   cpu                = var.cpu
   execution_role_arn = aws_iam_role.ecs_tasks_execution_role.arn
-  task_role_arn      = var.task_role_arn
 
   environment  = var.environment
   secrets      = var.secret

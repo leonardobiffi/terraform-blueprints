@@ -15,10 +15,13 @@ module "autoscaling" {
   iam_role_name               = local.name
   iam_role_description        = "ECS role for ${local.name}"
 
-  iam_role_policies = {
-    AmazonEC2ContainerServiceforEC2Role = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role"
-    AmazonSSMManagedInstanceCore        = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
-  }
+  iam_role_policies = merge(
+    {
+      AmazonEC2ContainerServiceforEC2Role = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role"
+      AmazonSSMManagedInstanceCore        = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+    },
+    var.iam_role_policies
+  )
 
   vpc_zone_identifier   = var.private_subnets
   health_check_type     = "EC2"
