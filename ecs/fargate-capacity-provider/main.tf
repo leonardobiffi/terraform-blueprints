@@ -60,7 +60,7 @@ module "ecs_cluster" {
 
 module "ecs_service" {
   source  = "leonardobiffi/ecs-service/aws"
-  version = "1.2.0"
+  version = "1.2.1"
 
   name = local.name
 
@@ -68,8 +68,9 @@ module "ecs_service" {
   subnet_ids         = var.private_subnets
   security_group_ids = [module.security_group_ecs.security_group_id]
 
-  ecs_cluster_id  = module.ecs_cluster.cluster_id
-  task_definition = "${module.ecs_task_definition.family}:${max(module.ecs_task_definition.revision, data.aws_ecs_task_definition.main.revision)}"
+  ecs_cluster_id   = module.ecs_cluster.cluster_id
+  ecs_cluster_name = module.ecs_cluster.cluster_name
+  task_definition  = "${module.ecs_task_definition.family}:${max(module.ecs_task_definition.revision, data.aws_ecs_task_definition.main.revision)}"
 
   target_group_arn      = var.target_group_arn
   target_container_name = local.name
