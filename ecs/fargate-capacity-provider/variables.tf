@@ -94,13 +94,13 @@ variable "autoscaling_enabled" {
 variable "autoscaling_cpu_target_value" {
   description = "The CPU target value in Autoscaling"
   type        = number
-  default     = null
+  default     = 0
 }
 
 variable "autoscaling_memory_target_value" {
   description = "The memory target value in Autoscaling"
   type        = number
-  default     = null
+  default     = 0
 }
 
 variable "scale_in_cooldown" {
