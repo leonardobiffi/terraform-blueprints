@@ -20,11 +20,6 @@ variable "default_cache_behavior" {
   type        = any
 }
 
-variable "ordered_cache_behavior" {
-  description = "The ordered cache behavior to use in the CloudFront distribution"
-  type        = list(any)
-}
-
 variable "subdomain" {
   description = "The subdomain to use"
   type        = string
@@ -41,6 +36,12 @@ variable "region" {
   description = "The AWS region to use"
   type        = string
   default     = "us-east-1"
+}
+
+variable "ordered_cache_behavior" {
+  description = "The ordered cache behavior to use in the CloudFront distribution"
+  type        = list(any)
+  default     = []
 }
 
 variable "create_origin_access_identity" {

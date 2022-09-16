@@ -38,7 +38,7 @@
 | <a name="input_default_cache_behavior"></a> [default\_cache\_behavior](#input\_default\_cache\_behavior) | The default cache behavior to use in the CloudFront distribution | `any` | n/a | yes |
 | <a name="input_domain_name"></a> [domain\_name](#input\_domain\_name) | The domain name to use | `string` | n/a | yes |
 | <a name="input_env"></a> [env](#input\_env) | The environment to use | `string` | n/a | yes |
-| <a name="input_ordered_cache_behavior"></a> [ordered\_cache\_behavior](#input\_ordered\_cache\_behavior) | The ordered cache behavior to use in the CloudFront distribution | `list(any)` | n/a | yes |
+| <a name="input_ordered_cache_behavior"></a> [ordered\_cache\_behavior](#input\_ordered\_cache\_behavior) | The ordered cache behavior to use in the CloudFront distribution | `list(any)` | `[]` | no |
 | <a name="input_origin"></a> [origin](#input\_origin) | The origin to use in the CloudFront distribution | `any` | n/a | yes |
 | <a name="input_origin_access_identities"></a> [origin\_access\_identities](#input\_origin\_access\_identities) | The origin access identities to use | `map(string)` | `{}` | no |
 | <a name="input_region"></a> [region](#input\_region) | The AWS region to use | `string` | `"us-east-1"` | no |
