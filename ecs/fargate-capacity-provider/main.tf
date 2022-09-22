@@ -60,7 +60,7 @@ module "ecs_cluster" {
 
 module "ecs_service" {
   source  = "leonardobiffi/ecs-service/aws"
-  version = "1.2.1"
+  version = "1.3.0"
 
   name = local.name
 
@@ -72,11 +72,12 @@ module "ecs_service" {
   ecs_cluster_name = module.ecs_cluster.cluster_name
   task_definition  = "${module.ecs_task_definition.family}:${max(module.ecs_task_definition.revision, data.aws_ecs_task_definition.main.revision)}"
 
-  target_group_arn      = var.target_group_arn
-  target_container_name = local.name
-  target_port           = var.target_port
-  port                  = var.container_port
-  desired_count         = var.desired_count
+  target_group_arn       = var.target_group_arn
+  target_container_name  = local.name
+  target_port            = var.target_port
+  port                   = var.container_port
+  desired_count          = var.desired_count
+  enable_execute_command = var.enable_execute_command
 
   health_check_grace_period_seconds = var.health_check_grace_period_seconds
 

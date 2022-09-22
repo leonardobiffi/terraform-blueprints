@@ -181,6 +181,12 @@ variable "container_insights" {
   default     = "disabled"
 }
 
+variable "enable_execute_command" {
+  description = "Whether to enable execute command. Valid values are true or false."
+  type        = bool
+  default     = true
+}
+
 variable "schedule_tag" {
   description = "The tag to use to schedule start and stop of the service"
   type        = map(string)
