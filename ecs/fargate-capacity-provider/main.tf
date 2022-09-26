@@ -7,8 +7,7 @@ terraform {
 }
 
 locals {
-  name               = "${var.env}-${var.app}"
-  container_insights = var.env == "PRD" ? "enabled" : "disabled"
+  name = "${var.env}-${var.app}"
 
   tags = merge(
     {
@@ -60,7 +59,7 @@ module "ecs_cluster" {
 
 module "ecs_service" {
   source  = "leonardobiffi/ecs-service/aws"
-  version = "1.3.0"
+  version = "1.4.0"
 
   name = local.name
 
@@ -80,6 +79,9 @@ module "ecs_service" {
   enable_execute_command = var.enable_execute_command
 
   health_check_grace_period_seconds = var.health_check_grace_period_seconds
+  attach_to_load_balancer           = var.attach_to_load_balancer
+  attach_to_multiples_target_groups = var.attach_to_multiples_target_groups
+  multiples_target_groups           = var.multiples_target_groups
 
   autoscaling_enabled             = var.autoscaling_enabled
   autoscaling_min_capacity        = var.autoscaling_min_capacity

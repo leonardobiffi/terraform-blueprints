@@ -50,6 +50,19 @@ variable "build_image" {
   default     = "aws/codebuild/standard:5.0"
 }
 
+variable "build_compute_type" {
+  description = "The compute type to use in CodeBuild"
+  type        = string
+  default     = "BUILD_GENERAL1_SMALL"
+}
+
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/codebuild_project#vpc_config
+variable "vpc_config" {
+  type        = any
+  default     = {}
+  description = "Configuration for the builds to run inside a VPC."
+}
+
 variable "tags" {
   description = "Additional tags to use"
   type        = map(string)

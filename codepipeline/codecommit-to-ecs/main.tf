@@ -99,7 +99,7 @@ module "codebuild" {
 
   # https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html
   build_image        = var.build_image
-  build_compute_type = "BUILD_GENERAL1_SMALL"
+  build_compute_type = var.build_compute_type
   build_timeout      = 60
 
   # These attributes are optional, used as ENV variables when building Docker images and pushing them to ECR
@@ -112,6 +112,7 @@ module "codebuild" {
   aws_account_id  = data.aws_caller_identity.default.account_id
   image_repo_name = var.ecr_repository_name
   image_tag       = "latest"
+  vpc_config      = var.vpc_config
 
   # Optional extra environment variables
   environment_variables = concat(

@@ -34,7 +34,7 @@ No resources.
 | <a name="input_http_tcp_listeners"></a> [http\_tcp\_listeners](#input\_http\_tcp\_listeners) | The HTTP listeners to use | `any` | `[]` | no |
 | <a name="input_https_listener_rules"></a> [https\_listener\_rules](#input\_https\_listener\_rules) | The HTTPS listener rules to use | `any` | `[]` | no |
 | <a name="input_https_listeners"></a> [https\_listeners](#input\_https\_listeners) | The HTTP listeners to use | `any` | `[]` | no |
-| <a name="input_region"></a> [region](#input\_region) | The AWS region to use | `string` | `"us-east-1"` | no |
+| <a name="input_region"></a> [region](#input\_region) | The AWS region to use | `string` | n/a | yes |
 | <a name="input_subnets"></a> [subnets](#input\_subnets) | The subnets to use | `list(string)` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | Additional tags to use | `map(string)` | `{}` | no |
 | <a name="input_target_groups"></a> [target\_groups](#input\_target\_groups) | The target groups to use | `any` | n/a | yes |

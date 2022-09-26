@@ -12,14 +12,14 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.31.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.32.0 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_ecs_cluster"></a> [ecs\_cluster](#module\_ecs\_cluster) | terraform-aws-modules/ecs/aws | ~> 4.0 |
-| <a name="module_ecs_service"></a> [ecs\_service](#module\_ecs\_service) | leonardobiffi/ecs-service/aws | 1.3.0 |
+| <a name="module_ecs_service"></a> [ecs\_service](#module\_ecs\_service) | leonardobiffi/ecs-service/aws | 1.4.0 |
 | <a name="module_ecs_task_definition"></a> [ecs\_task\_definition](#module\_ecs\_task\_definition) | mongodb/ecs-task-definition/aws | 2.1.5 |
 | <a name="module_security_group_ecs"></a> [security\_group\_ecs](#module\_security\_group\_ecs) | terraform-aws-modules/security-group/aws | ~> 4.9 |
 
@@ -42,6 +42,8 @@
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_app"></a> [app](#input\_app) | The name of the app | `string` | n/a | yes |
+| <a name="input_attach_to_load_balancer"></a> [attach\_to\_load\_balancer](#input\_attach\_to\_load\_balancer) | Whether or not this service should attach to a load balancer. | `bool` | `true` | no |
+| <a name="input_attach_to_multiples_target_groups"></a> [attach\_to\_multiples\_target\_groups](#input\_attach\_to\_multiples\_target\_groups) | Whether or not this service should attach to multiples target groups. | `bool` | `false` | no |
 | <a name="input_autoscaling_cpu_target_value"></a> [autoscaling\_cpu\_target\_value](#input\_autoscaling\_cpu\_target\_value) | The CPU target value in Autoscaling | `number` | `0` | no |
 | <a name="input_autoscaling_enabled"></a> [autoscaling\_enabled](#input\_autoscaling\_enabled) | Whether to enable autoscaling | `bool` | `false` | no |
 | <a name="input_autoscaling_max_capacity"></a> [autoscaling\_max\_capacity](#input\_autoscaling\_max\_capacity) | Max Capacity in Autoscaling | `number` | `1` | no |
@@ -63,6 +65,7 @@
 | <a name="input_log_retention_days"></a> [log\_retention\_days](#input\_log\_retention\_days) | The number of days to keep logs | `number` | `7` | no |
 | <a name="input_max_image_count"></a> [max\_image\_count](#input\_max\_image\_count) | The maximum number of images to keep in ECR | `number` | `10` | no |
 | <a name="input_memory"></a> [memory](#input\_memory) | The amount of memory to use in task | `number` | `512` | no |
+| <a name="input_multiples_target_groups"></a> [multiples\_target\_groups](#input\_multiples\_target\_groups) | The multiples target groups to attach to the service. | <pre>list(object({<br>    target_group_arn = string<br>    container_name   = string<br>    container_port   = string<br>  }))</pre> | `[]` | no |
 | <a name="input_private_subnets"></a> [private\_subnets](#input\_private\_subnets) | The private subnets to use | `list(string)` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | The AWS region to use | `string` | `"us-east-1"` | no |
 | <a name="input_scale_in_cooldown"></a> [scale\_in\_cooldown](#input\_scale\_in\_cooldown) | The scale in cooldown in Autoscaling | `number` | `120` | no |

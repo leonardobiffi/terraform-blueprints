@@ -45,6 +45,7 @@
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_app"></a> [app](#input\_app) | The name of the app | `string` | n/a | yes |
+| <a name="input_build_compute_type"></a> [build\_compute\_type](#input\_build\_compute\_type) | The compute type to use in CodeBuild | `string` | `"BUILD_GENERAL1_SMALL"` | no |
 | <a name="input_build_image"></a> [build\_image](#input\_build\_image) | The name of the build image to use | `string` | `"aws/codebuild/standard:5.0"` | no |
 | <a name="input_ecr_repository_name"></a> [ecr\_repository\_name](#input\_ecr\_repository\_name) | The name of the ECR repository | `string` | n/a | yes |
 | <a name="input_env"></a> [env](#input\_env) | The environment to set | `string` | n/a | yes |
@@ -55,6 +56,7 @@
 | <a name="input_s3_bucket_artifact"></a> [s3\_bucket\_artifact](#input\_s3\_bucket\_artifact) | The S3 bucket to store the artifact | `string` | n/a | yes |
 | <a name="input_s3_bucket_artifact_arn"></a> [s3\_bucket\_artifact\_arn](#input\_s3\_bucket\_artifact\_arn) | The ARN S3 bucket to store the artifact | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | Additional tags to use | `map(string)` | `{}` | no |
+| <a name="input_vpc_config"></a> [vpc\_config](#input\_vpc\_config) | Configuration for the builds to run inside a VPC. | `any` | `{}` | no |
 
 ## Outputs
 

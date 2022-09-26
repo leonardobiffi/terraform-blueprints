@@ -25,11 +25,6 @@ variable "subnets" {
   description = "The subnets to use"
 }
 
-variable "target_groups" {
-  type        = any
-  description = "The target groups to use"
-}
-
 # OPTIONAL
 
 variable "http_tcp_listeners" {
@@ -40,25 +35,13 @@ variable "http_tcp_listeners" {
 
 variable "https_listeners" {
   type        = any
-  description = "The HTTP listeners to use"
+  description = "The HTTPS listeners to use"
   default     = []
 }
 
-variable "http_tcp_listener_rules" {
+variable "target_groups" {
   type        = any
-  description = "The HTTP listener rules to use"
-  default     = []
-}
-
-variable "https_listener_rules" {
-  type        = any
-  description = "The HTTPS listener rules to use"
-  default     = []
-}
-
-variable "extra_ssl_certs" {
-  description = "A list of maps describing any extra SSL certificates to apply to the HTTPS listeners. Required key/values: certificate_arn, https_listener_index (the index of the listener within https_listeners which the cert applies toward)."
-  type        = list(map(string))
+  description = "The target groups to use"
   default     = []
 }
 
