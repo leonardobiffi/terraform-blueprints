@@ -20,17 +20,18 @@ variable "default_cache_behavior" {
   type        = any
 }
 
-variable "subdomain" {
-  description = "The subdomain to use"
-  type        = string
-}
-
 variable "domain_name" {
   description = "The domain name to use"
   type        = string
 }
 
 # Optional
+
+variable "subdomain" {
+  description = "The subdomain to use"
+  type        = string
+  default     = ""
+}
 
 variable "region" {
   description = "The AWS region to use"
