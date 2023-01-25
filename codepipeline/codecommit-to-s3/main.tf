@@ -102,7 +102,7 @@ module "codebuild" {
 
   # https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html
   build_image        = var.build_image
-  build_compute_type = "BUILD_GENERAL1_SMALL"
+  build_compute_type = var.build_compute_type
   build_timeout      = 60
 
   # These attributes are optional, used as ENV variables when building Docker images and pushing them to ECR

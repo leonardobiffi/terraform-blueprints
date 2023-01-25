@@ -12,7 +12,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.24.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.51.0 |
 
 ## Modules
 
@@ -47,6 +47,7 @@
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_app"></a> [app](#input\_app) | The name of the app | `string` | n/a | yes |
+| <a name="input_build_compute_type"></a> [build\_compute\_type](#input\_build\_compute\_type) | The compute type to use | `string` | `"BUILD_GENERAL1_SMALL"` | no |
 | <a name="input_build_image"></a> [build\_image](#input\_build\_image) | The name of the build image to use | `string` | `"aws/codebuild/standard:5.0"` | no |
 | <a name="input_cloudfront_id"></a> [cloudfront\_id](#input\_cloudfront\_id) | The ID of the CloudFront distribution. Required if creating an invalidation stage | `string` | `null` | no |
 | <a name="input_create_invalidation_stage"></a> [create\_invalidation\_stage](#input\_create\_invalidation\_stage) | Create an invalidation stage | `bool` | `false` | no |

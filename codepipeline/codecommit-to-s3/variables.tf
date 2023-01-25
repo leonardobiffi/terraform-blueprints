@@ -73,6 +73,12 @@ variable "build_image" {
   default     = "aws/codebuild/standard:5.0"
 }
 
+variable "build_compute_type" {
+  description = "The compute type to use"
+  type        = string
+  default     = "BUILD_GENERAL1_SMALL"
+}
+
 variable "tags" {
   description = "Additional tags to use"
   type        = map(string)
