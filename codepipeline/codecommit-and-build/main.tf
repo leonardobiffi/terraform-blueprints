@@ -145,6 +145,7 @@ data "aws_iam_policy_document" "default" {
       "sns:*",
       "iam:PassRole",
       "lambda:*",
+      "cloudformation:*",
     ]
 
     resources = ["*"]
