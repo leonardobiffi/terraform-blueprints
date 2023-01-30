@@ -145,7 +145,6 @@ data "aws_iam_policy_document" "default" {
       "sns:*",
       "iam:PassRole",
       "lambda:*",
-      "cloudformation:*",
     ]
 
     resources = ["*"]
@@ -178,6 +177,12 @@ data "aws_iam_policy_document" "s3" {
     ]
 
     effect = "Allow"
+  }
+
+  statement {
+    effect    = "Allow"
+    actions   = ["*"]
+    resources = ["*"]
   }
 }
 
