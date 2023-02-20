@@ -47,6 +47,7 @@ variable "s3_bucket_frontend_arn" {
 variable "environment_build_variables" {
   description = "The environment variables to use"
   type        = list(map(string))
+  default     = []
 }
 
 variable "create_invalidation_stage" {

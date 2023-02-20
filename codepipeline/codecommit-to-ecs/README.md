@@ -12,7 +12,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.24.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.55.0 |
 
 ## Modules
 
@@ -49,7 +49,7 @@
 | <a name="input_build_image"></a> [build\_image](#input\_build\_image) | The name of the build image to use | `string` | `"aws/codebuild/standard:5.0"` | no |
 | <a name="input_ecr_repository_name"></a> [ecr\_repository\_name](#input\_ecr\_repository\_name) | The name of the ECR repository | `string` | n/a | yes |
 | <a name="input_env"></a> [env](#input\_env) | The environment to set | `string` | n/a | yes |
-| <a name="input_environment_build_variables"></a> [environment\_build\_variables](#input\_environment\_build\_variables) | The environment variables to use in CodeBuild | `list(map(string))` | n/a | yes |
+| <a name="input_environment_build_variables"></a> [environment\_build\_variables](#input\_environment\_build\_variables) | The environment variables to use in CodeBuild | `list(map(string))` | `[]` | no |
 | <a name="input_region"></a> [region](#input\_region) | The AWS region to use | `string` | `"us-east-1"` | no |
 | <a name="input_repo_branch"></a> [repo\_branch](#input\_repo\_branch) | The branch of the repository | `string` | n/a | yes |
 | <a name="input_repo_name"></a> [repo\_name](#input\_repo\_name) | The name of the repository | `string` | n/a | yes |

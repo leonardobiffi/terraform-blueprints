@@ -37,6 +37,7 @@ variable "s3_bucket_artifact_arn" {
 variable "environment_build_variables" {
   description = "The environment variables to use"
   type        = list(map(string))
+  default     = []
 }
 
 variable "build_image" {

@@ -52,7 +52,7 @@
 | <a name="input_cloudfront_id"></a> [cloudfront\_id](#input\_cloudfront\_id) | The ID of the CloudFront distribution. Required if creating an invalidation stage | `string` | `null` | no |
 | <a name="input_create_invalidation_stage"></a> [create\_invalidation\_stage](#input\_create\_invalidation\_stage) | Create an invalidation stage | `bool` | `false` | no |
 | <a name="input_env"></a> [env](#input\_env) | The environment to set | `string` | n/a | yes |
-| <a name="input_environment_build_variables"></a> [environment\_build\_variables](#input\_environment\_build\_variables) | The environment variables to use | `list(map(string))` | n/a | yes |
+| <a name="input_environment_build_variables"></a> [environment\_build\_variables](#input\_environment\_build\_variables) | The environment variables to use | `list(map(string))` | `[]` | no |
 | <a name="input_invalidation_function_name"></a> [invalidation\_function\_name](#input\_invalidation\_function\_name) | The name of the invalidation function | `string` | `null` | no |
 | <a name="input_region"></a> [region](#input\_region) | The AWS region to use | `string` | `"us-east-1"` | no |
 | <a name="input_repo_branch"></a> [repo\_branch](#input\_repo\_branch) | The branch of the repository | `string` | n/a | yes |
