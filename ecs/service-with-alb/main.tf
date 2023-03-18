@@ -66,7 +66,7 @@ module "ecs_task_definition" {
   requires_compatibilities = ["FARGATE"]
 
   environment  = var.environment
-  secrets      = var.secret
+  secrets      = concat(local.secrets, var.parameters)
   network_mode = "awsvpc"
 
   portMappings = [

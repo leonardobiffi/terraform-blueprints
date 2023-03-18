@@ -110,10 +110,22 @@ variable "environment" {
   default     = []
 }
 
-variable "secret" {
-  description = "The environment variables from parameter store to use in Container"
-  type        = list(map(string))
-  default     = []
+variable "secrets" {
+  description = "List of secrets to fetch from AWS Secrets Manager and use in Container"
+  type = list(object({
+    name = string
+    keys = list(string)
+  }))
+  default = []
+}
+
+variable "parameters" {
+  description = "List of parameters to use in Container"
+  type = list(object({
+    name      = string
+    valueFrom = string
+  }))
+  default = []
 }
 
 variable "task_role_arn" {
