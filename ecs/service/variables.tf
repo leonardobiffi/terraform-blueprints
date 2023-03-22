@@ -15,11 +15,6 @@ variable "env" {
   type        = string
 }
 
-variable "vpc_id" {
-  description = "The VPC ID to use"
-  type        = string
-}
-
 variable "private_subnets" {
   description = "The private subnets to use"
   type        = list(string)
@@ -144,6 +139,24 @@ variable "enable_execute_command" {
   description = "Whether to enable execute command. Valid values are true or false."
   type        = bool
   default     = true
+}
+
+variable "launch_type" {
+  description = "The launch type to use for the service (\"EC2\" or \"FARGATE\")."
+  type        = string
+  default     = null
+}
+
+variable "platform_version" {
+  description = "The platform version to use for the ECS"
+  type        = string
+  default     = "1.4.0"
+}
+
+variable "task_network_mode" {
+  description = "The network mode used for the containers in the task."
+  type        = string
+  default     = "awsvpc"
 }
 
 variable "policy_statement" {

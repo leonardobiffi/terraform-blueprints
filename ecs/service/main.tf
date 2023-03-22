@@ -16,10 +16,9 @@ locals {
 
 module "ecs_service" {
   source  = "leonardobiffi/ecs-service/aws"
-  version = "1.5.0"
+  version = "1.5.3"
 
   name       = local.name
-  vpc_id     = var.vpc_id
   subnet_ids = var.private_subnets
 
   ecs_cluster_id  = var.cluster_id
@@ -27,6 +26,10 @@ module "ecs_service" {
 
   desired_count          = var.desired_count
   enable_execute_command = var.enable_execute_command
+
+  launch_type       = var.launch_type
+  platform_version  = var.platform_version
+  task_network_mode = var.task_network_mode
 
   autoscaling_enabled             = var.autoscaling_enabled
   autoscaling_min_capacity        = var.autoscaling_min_capacity
@@ -54,11 +57,11 @@ module "ecs_task_definition" {
   cpu                      = var.cpu
   execution_role_arn       = aws_iam_role.ecs_tasks_execution_role.arn
   task_role_arn            = var.task_role_arn != null ? var.task_role_arn : aws_iam_role.ecs_tasks_role[0].arn
-  requires_compatibilities = ["FARGATE"]
+  requires_compatibilities = var.launch_type == "EC2" ? ["EC2"] : ["FARGATE"]
 
   environment  = var.environment
   secrets      = concat(local.secrets, var.parameters)
-  network_mode = "awsvpc"
+  network_mode = var.task_network_mode
 
   logConfiguration = {
     logDriver = "awslogs"

@@ -8,11 +8,6 @@ output "ecr_repository_url" {
   value       = aws_ecr_repository.this.repository_url
 }
 
-output "vpc_id" {
-  description = "The ID of the VPC"
-  value       = var.vpc_id
-}
-
 output "subnet_ids" {
   description = "The IDs of the subnets"
   value       = var.private_subnets

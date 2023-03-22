@@ -17,3 +17,8 @@ output "security_group_ids" {
   description = "The IDs of the security groups"
   value       = [module.security_group_ecs.security_group_id]
 }
+
+output "cluster_id" {
+  description = "ID that identifies the cluster"
+  value       = module.ecs_cluster.cluster_id
+}

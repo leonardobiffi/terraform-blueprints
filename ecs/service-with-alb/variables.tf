@@ -179,6 +179,24 @@ variable "enable_execute_command" {
   default     = true
 }
 
+variable "launch_type" {
+  description = "The launch type to use for the service (\"EC2\" or \"FARGATE\")."
+  type        = string
+  default     = null
+}
+
+variable "platform_version" {
+  description = "The platform version to use for the ECS"
+  type        = string
+  default     = "1.4.0"
+}
+
+variable "task_network_mode" {
+  description = "The network mode used for the containers in the task."
+  type        = string
+  default     = "awsvpc"
+}
+
 variable "multiples_target_groups" {
   description = "The multiples target groups to attach to the service."
   type = list(object({
