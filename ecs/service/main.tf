@@ -52,7 +52,7 @@ module "ecs_task_definition" {
 
   name                     = local.name
   family                   = local.name
-  image                    = aws_ecr_repository.this.repository_url
+  image                    = local.ecr_repository_url
   memory                   = var.memory
   cpu                      = var.cpu
   execution_role_arn       = aws_iam_role.ecs_tasks_execution_role.arn

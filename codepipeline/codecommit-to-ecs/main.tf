@@ -10,14 +10,10 @@ data "aws_caller_identity" "default" {}
 
 locals {
   name = "${var.env}-${var.app}"
-
-  tags = merge(
-    {
-      Environment = var.env
-      ManagedBy   = "Terraform"
-    },
-    var.tags
-  )
+  tags = merge(var.tags, {
+    Environment = var.env
+    ManagedBy   = "Terraform"
+  })
 }
 
 resource "aws_codepipeline" "default" {
@@ -77,6 +73,25 @@ resource "aws_codepipeline" "default" {
       configuration = {
         ClusterName = local.name
         ServiceName = local.name
+      }
+    }
+  }
+
+  dynamic "stage" {
+    for_each = var.additional_stages
+    content {
+      name = stage.value.name
+      action {
+        name            = stage.value.action.name
+        category        = "Deploy"
+        owner           = "AWS"
+        provider        = "ECS"
+        input_artifacts = ["task"]
+        version         = "1"
+        configuration = {
+          ClusterName = stage.value.action.configuration.cluster_name
+          ServiceName = stage.value.action.configuration.service_name
+        }
       }
     }
   }

@@ -129,6 +129,12 @@ variable "task_role_arn" {
   default     = null
 }
 
+variable "ecr_repository_url" {
+  description = "The URL of the ECR repository"
+  type        = string
+  default     = null
+}
+
 variable "container_insights" {
   description = "Whether to enable container insights. Valid values are enabled or disabled."
   type        = string
