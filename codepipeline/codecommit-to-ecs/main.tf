@@ -87,9 +87,9 @@ resource "aws_codepipeline" "default" {
         version         = "1"
 
         configuration = {
-          ClusterName = action.value.configuration.cluster_name
-          ServiceName = action.value.configuration.service_name
-          FileName    = action.value.configuration.file_name
+          ClusterName = local.name
+          ServiceName = action.value.service_name
+          FileName    = action.value.file_name
         }
       }
     }

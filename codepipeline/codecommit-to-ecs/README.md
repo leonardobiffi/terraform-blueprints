@@ -44,7 +44,7 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_additional_deploy_action"></a> [additional\_deploy\_action](#input\_additional\_deploy\_action) | Additional stages to use | <pre>list(object({<br>    name = string<br>    configuration = object({<br>      cluster_name = string<br>      service_name = string<br>      file_name    = string<br>    })<br>  }))</pre> | `[]` | no |
+| <a name="input_additional_deploy_action"></a> [additional\_deploy\_action](#input\_additional\_deploy\_action) | Additional stages to use | <pre>list(object({<br>    name         = string<br>    file_name    = string<br>    service_name = string<br>  }))</pre> | `[]` | no |
 | <a name="input_app"></a> [app](#input\_app) | The name of the app | `string` | n/a | yes |
 | <a name="input_build_compute_type"></a> [build\_compute\_type](#input\_build\_compute\_type) | The compute type to use in CodeBuild | `string` | `"BUILD_GENERAL1_SMALL"` | no |
 | <a name="input_build_image"></a> [build\_image](#input\_build\_image) | The name of the build image to use | `string` | `"aws/codebuild/standard:5.0"` | no |

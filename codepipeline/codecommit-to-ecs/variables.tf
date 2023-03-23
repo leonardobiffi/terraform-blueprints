@@ -67,12 +67,9 @@ variable "vpc_config" {
 variable "additional_deploy_action" {
   description = "Additional stages to use"
   type = list(object({
-    name = string
-    configuration = object({
-      cluster_name = string
-      service_name = string
-      file_name    = string
-    })
+    name         = string
+    file_name    = string
+    service_name = string
   }))
   default = []
 }
