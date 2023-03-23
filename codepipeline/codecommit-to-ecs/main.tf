@@ -75,6 +75,24 @@ resource "aws_codepipeline" "default" {
         ServiceName = local.name
       }
     }
+
+    dynamic "action" {
+      for_each = var.additional_deploy_action
+      content {
+        name            = action.value.name
+        category        = "Deploy"
+        owner           = "AWS"
+        provider        = "ECS"
+        input_artifacts = ["task"]
+        version         = "1"
+
+        configuration = {
+          ClusterName = action.value.configuration.cluster_name
+          ServiceName = action.value.configuration.service_name
+          FileName    = action.value.configuration.file_name
+        }
+      }
+    }
   }
 
   depends_on = [
