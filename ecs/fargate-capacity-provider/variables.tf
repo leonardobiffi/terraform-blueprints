@@ -1,6 +1,6 @@
 # REQUIRED
 
-variable "app" {
+variable "name" {
   description = "The name of the app"
   type        = string
 }
@@ -205,6 +205,18 @@ variable "multiples_target_groups" {
     target_group_arn = string
     container_name   = string
     container_port   = string
+  }))
+  default = []
+}
+
+variable "ecs_task_definition_additional" {
+  description = "Additional tags to use in ECS Task Definition"
+  type = list(object({
+    name         = string
+    image        = string
+    environment  = optional(list(map(string)))
+    secret       = optional(list(map(string)))
+    portMappings = optional(list(map(string)))
   }))
   default = []
 }
