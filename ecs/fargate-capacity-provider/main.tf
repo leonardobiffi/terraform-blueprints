@@ -63,7 +63,7 @@ module "ecs_service" {
   security_group_ids = [module.security_group_ecs.security_group_id]
 
   ecs_cluster_id  = module.ecs_cluster.cluster_id
-  task_definition = "${aws_ecs_task_definition.main.family}:${max(aws_ecs_task_definition.main.revision, data.aws_ecs_task_definition.main.revision)}"
+  task_definition = "${module.ecs_task_definition.family}:${max(module.ecs_task_definition.revision, data.aws_ecs_task_definition.main.revision)}"
 
   target_group_arn       = var.target_group_arn
   target_container_name  = local.name
@@ -86,8 +86,8 @@ module "ecs_service" {
 
 # Simply specify the family to find the latest ACTIVE revision in that family.
 data "aws_ecs_task_definition" "main" {
-  task_definition = aws_ecs_task_definition.main.family
-  depends_on      = [aws_ecs_task_definition.main]
+  task_definition = module.ecs_task_definition.family
+  depends_on      = [module.ecs_task_definition]
 }
 
 module "ecs_task_definition" {
@@ -97,8 +97,8 @@ module "ecs_task_definition" {
   name                     = local.name
   family                   = local.name
   image                    = aws_ecr_repository.this.repository_url
-  memory                   = length(var.ecs_task_definition_additional) > 0 ? null : var.memory
-  cpu                      = length(var.ecs_task_definition_additional) > 0 ? null : var.cpu
+  memory                   = var.memory
+  cpu                      = var.cpu
   execution_role_arn       = aws_iam_role.ecs_tasks_execution_role.arn
   task_role_arn            = var.task_role_arn != null ? var.task_role_arn : aws_iam_role.ecs_tasks_role[0].arn
   requires_compatibilities = ["FARGATE"]
@@ -123,65 +123,6 @@ module "ecs_task_definition" {
       "awslogs-stream-prefix" = "ecs"
     }
   }
-
-  register_task_definition = false
-}
-
-module "ecs_task_definition_additional" {
-  source  = "mongodb/ecs-task-definition/aws"
-  version = "2.1.5"
-
-  for_each = { for i in var.ecs_task_definition_additional : i.name => i }
-
-  name                     = each.value.name
-  family                   = local.name
-  image                    = each.value.image != null ? each.value.image : aws_ecr_repository.this.repository_url
-  execution_role_arn       = aws_iam_role.ecs_tasks_execution_role.arn
-  task_role_arn            = var.task_role_arn != null ? var.task_role_arn : aws_iam_role.ecs_tasks_role[0].arn
-  requires_compatibilities = ["FARGATE"]
-
-  environment  = each.value.environment
-  secrets      = each.value.secret
-  network_mode = "awsvpc"
-
-  portMappings = each.value.portMappings
-
-  logConfiguration = {
-    logDriver = "awslogs"
-    options = {
-      "awslogs-group"         = aws_cloudwatch_log_group.this.name
-      "awslogs-region"        = var.region
-      "awslogs-stream-prefix" = "ecs"
-    }
-  }
-
-  register_task_definition = false
-}
-
-locals {
-  task_definition_additionals = [
-    for i in module.ecs_task_definition_additional : i.container_definitions
-  ]
-}
-
-module "merged" {
-  source  = "mongodb/ecs-task-definition/aws//modules/merge"
-  version = "2.1.5"
-
-  container_definitions = concat([module.ecs_task_definition.container_definitions], local.task_definition_additionals)
-}
-
-resource "aws_ecs_task_definition" "main" {
-  container_definitions = module.merged.container_definitions
-
-  memory             = var.memory
-  cpu                = var.cpu
-  family             = local.name
-  execution_role_arn = aws_iam_role.ecs_tasks_execution_role.arn
-  task_role_arn      = var.task_role_arn != null ? var.task_role_arn : aws_iam_role.ecs_tasks_role[0].arn
-
-  requires_compatibilities = ["FARGATE"]
-  network_mode             = "awsvpc"
 }
 
 resource "aws_cloudwatch_log_group" "this" {

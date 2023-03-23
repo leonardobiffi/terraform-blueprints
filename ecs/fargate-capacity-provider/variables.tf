@@ -209,18 +209,6 @@ variable "multiples_target_groups" {
   default = []
 }
 
-variable "ecs_task_definition_additional" {
-  description = "Additional tags to use in ECS Task Definition"
-  type = list(object({
-    name         = string
-    image        = optional(string)
-    environment  = optional(list(map(string)))
-    secret       = optional(list(map(string)))
-    portMappings = optional(list(map(string)))
-  }))
-  default = []
-}
-
 variable "schedule_tag" {
   description = "The tag to use to schedule start and stop of the service"
   type        = map(string)
