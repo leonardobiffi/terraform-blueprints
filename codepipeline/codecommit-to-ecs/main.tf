@@ -77,25 +77,6 @@ resource "aws_codepipeline" "default" {
     }
   }
 
-  dynamic "stage" {
-    for_each = var.additional_stages
-    content {
-      name = stage.value.name
-      action {
-        name            = stage.value.action.name
-        category        = "Deploy"
-        owner           = "AWS"
-        provider        = "ECS"
-        input_artifacts = ["task"]
-        version         = "1"
-        configuration = {
-          ClusterName = stage.value.action.configuration.cluster_name
-          ServiceName = stage.value.action.configuration.service_name
-        }
-      }
-    }
-  }
-
   depends_on = [
     aws_iam_role_policy_attachment.default,
     aws_iam_role_policy_attachment.s3,

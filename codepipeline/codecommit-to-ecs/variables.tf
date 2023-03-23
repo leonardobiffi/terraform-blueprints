@@ -64,21 +64,6 @@ variable "vpc_config" {
   description = "Configuration for the builds to run inside a VPC."
 }
 
-variable "additional_stages" {
-  description = "Additional stages to use"
-  type = list(object({
-    name = string
-    action = object({
-      name = string
-      configuration = object({
-        cluster_name = string
-        service_name = string
-      })
-    })
-  }))
-  default = []
-}
-
 variable "tags" {
   description = "Additional tags to use"
   type        = map(string)
