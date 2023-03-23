@@ -213,7 +213,7 @@ variable "ecs_task_definition_additional" {
   description = "Additional tags to use in ECS Task Definition"
   type = list(object({
     name         = string
-    image        = string
+    image        = optional(string)
     environment  = optional(list(map(string)))
     secret       = optional(list(map(string)))
     portMappings = optional(list(map(string)))

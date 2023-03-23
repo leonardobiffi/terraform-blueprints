@@ -135,7 +135,7 @@ module "ecs_task_definition_additional" {
 
   name                     = each.value.name
   family                   = local.name
-  image                    = each.value.image
+  image                    = each.value.image != null ? each.value.image : aws_ecr_repository.this.repository_url
   execution_role_arn       = aws_iam_role.ecs_tasks_execution_role.arn
   task_role_arn            = var.task_role_arn != null ? var.task_role_arn : aws_iam_role.ecs_tasks_role[0].arn
   requires_compatibilities = ["FARGATE"]
