@@ -189,9 +189,9 @@ variable "auto_minor_version_upgrade" {
   default     = null
 }
 
-variable "additional_security_group_rules" {
-  description = "Additional security group rules to add to the security group"
-  type        = list(any)
+variable "allowed_cidr_blocks" {
+  description = "Additional CIDR blocks to allow access to the cache"
+  type        = list(string)
   default     = []
 }
 

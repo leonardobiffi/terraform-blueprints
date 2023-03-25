@@ -23,11 +23,11 @@ module "redis" {
   auth_token  = var.auth_token
   kms_key_id  = var.kms_key_id
 
-  vpc_id                          = var.vpc_id
-  availability_zones              = var.availability_zones
-  subnets                         = var.subnets
-  allowed_security_group_ids      = var.allowed_security_group_ids
-  additional_security_group_rules = var.additional_security_group_rules
+  vpc_id                     = var.vpc_id
+  availability_zones         = var.availability_zones
+  subnets                    = var.subnets
+  allowed_security_group_ids = var.allowed_security_group_ids
+  allowed_cidr_blocks        = var.allowed_cidr_blocks
 
   cluster_size               = var.cluster_size
   instance_type              = var.instance_type
