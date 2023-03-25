@@ -87,6 +87,7 @@
 |------|-------------|
 | <a name="output_ecr_repository_arn"></a> [ecr\_repository\_arn](#output\_ecr\_repository\_arn) | The ARN of the ECR repository |
 | <a name="output_ecr_repository_name"></a> [ecr\_repository\_name](#output\_ecr\_repository\_name) | The name of the ECR repository |
+| <a name="output_ecr_repository_url"></a> [ecr\_repository\_url](#output\_ecr\_repository\_url) | The name of the ECR repository |
 | <a name="output_ecs_service_id"></a> [ecs\_service\_id](#output\_ecs\_service\_id) | The ARN of the ECS service |
 | <a name="output_ecs_tasks_execution_role_arn"></a> [ecs\_tasks\_execution\_role\_arn](#output\_ecs\_tasks\_execution\_role\_arn) | The ARN of the ECS tasks execution role |
 | <a name="output_ecs_tasks_role_arn"></a> [ecs\_tasks\_role\_arn](#output\_ecs\_tasks\_role\_arn) | The ARN of the ECS tasks role |
