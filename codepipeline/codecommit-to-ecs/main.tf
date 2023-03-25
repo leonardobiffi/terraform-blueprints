@@ -71,8 +71,8 @@ resource "aws_codepipeline" "default" {
       version         = "1"
 
       configuration = {
-        ClusterName = local.name
-        ServiceName = local.name
+        ClusterName = var.cluster_name != null ? var.cluster_name : local.name
+        ServiceName = var.service_name != null ? var.service_name : local.name
       }
     }
 

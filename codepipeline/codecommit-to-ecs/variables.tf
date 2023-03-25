@@ -64,6 +64,18 @@ variable "vpc_config" {
   description = "Configuration for the builds to run inside a VPC."
 }
 
+variable "cluster_name" {
+  description = "The name of the ECS cluster"
+  type        = string
+  default     = null
+}
+
+variable "service_name" {
+  description = "The name of the ECS service"
+  type        = string
+  default     = null
+}
+
 variable "additional_deploy_action" {
   description = "Additional stages to use"
   type = list(object({
