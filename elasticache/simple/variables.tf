@@ -189,6 +189,12 @@ variable "auto_minor_version_upgrade" {
   default     = null
 }
 
+variable "additional_security_group_rules" {
+  description = "Additional security group rules to add to the security group"
+  type        = list(any)
+  default     = []
+}
+
 variable "tags" {
   description = "A mapping of tags to assign to the resource"
   type        = map(string)
