@@ -46,7 +46,7 @@ module "ecs_service" {
   autoscaling_cpu_target_value    = var.autoscaling_cpu_target_value
   autoscaling_memory_target_value = var.autoscaling_memory_target_value
 
-  tags = local.tags
+  tags = merge(local.tags, var.schedule_tag)
 }
 
 # Simply specify the family to find the latest ACTIVE revision in that family.

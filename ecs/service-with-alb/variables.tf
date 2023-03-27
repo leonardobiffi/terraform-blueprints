@@ -218,6 +218,12 @@ variable "policy_statement" {
   default = []
 }
 
+variable "schedule_tag" {
+  description = "The tag to use to schedule start and stop of the service"
+  type        = map(string)
+  default     = {}
+}
+
 variable "tags" {
   description = "Additional tags to use"
   type        = map(string)
