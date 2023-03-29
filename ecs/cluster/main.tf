@@ -8,12 +8,8 @@ terraform {
 
 locals {
   name = "${var.env}-${var.name}"
-
-  tags = merge(
-    {
-      Environment = var.env
-      ManagedBy   = "Terraform"
-    },
-    var.tags
-  )
+  tags = merge(var.tags, {
+    Environment = var.env
+    ManagedBy   = "Terraform"
+  })
 }

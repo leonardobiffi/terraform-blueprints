@@ -29,6 +29,7 @@ module "autoscaling" {
   protect_from_scale_in = true
 
   autoscaling_group_tags = merge({
+    Name             = "${local.name}-ecs-cluster"
     AmazonECSManaged = true
   })
 
