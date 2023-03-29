@@ -1,6 +1,6 @@
 # REQUIRED
 
-variable "app" {
+variable "name" {
   description = "The name of the app"
   type        = string
 }

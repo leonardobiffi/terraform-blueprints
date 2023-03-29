@@ -7,15 +7,11 @@ terraform {
 }
 
 locals {
-  name = "${var.env}-${var.app}"
-
-  tags = merge(
-    {
-      Environment = var.env
-      ManagedBy   = "Terraform"
-    },
-    var.tags
-  )
+  name = "${var.env}-${var.name}"
+  tags = merge(var.tags, {
+    Environment = var.env
+    ManagedBy   = "Terraform"
+  })
 }
 
 module "alb" {
