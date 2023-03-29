@@ -37,3 +37,8 @@ output "target_group_names" {
   description = "Name of the target group. Useful for passing to your CodeDeploy Deployment Group."
   value       = module.alb.target_group_names
 }
+
+output "target_group_arns_by_name" {
+  description = "Map of target group names Application to ARNs."
+  value       = local.target_group_arns_by_name
+}

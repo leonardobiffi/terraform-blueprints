@@ -34,3 +34,10 @@ module "alb" {
 
   tags = local.tags
 }
+
+locals {
+  # Add tag environment to target groups
+  target_groups = [for tg in var.target_groups : merge(tg, { tags = merge(tg.tags, { Environment = var.env }) })]
+  # Create a map of target group names to ARNs
+  target_group_arns_by_name = { for i, tg in var.target_groups : tg.tags.Application => module.alb.target_group_arns[i] }
+}
