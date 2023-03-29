@@ -149,6 +149,15 @@ variable "parameters" {
   default = []
 }
 
+variable "parameters_by_path" {
+  description = "The Path to use in parameters"
+  type = list(object({
+    name = string
+    keys = list(string)
+  }))
+  default = []
+}
+
 variable "ingress_cidr_blocks" {
   description = "The ingress cidr blocks to use in Service"
   type        = list(string)
