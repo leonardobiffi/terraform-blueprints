@@ -31,9 +31,12 @@ resource "aws_iam_role" "ecs_tasks_role" {
 # Policy
 data "aws_iam_policy_document" "ecs_policy" {
   statement {
-    sid       = "ParameterStore"
-    effect    = "Allow"
-    actions   = ["ssm:GetParameters"]
+    sid    = "GetSecrets"
+    effect = "Allow"
+    actions = [
+      "ssm:GetParameters",
+      "secretsmanager:GetSecretValue",
+    ]
     resources = ["*"]
   }
 }
