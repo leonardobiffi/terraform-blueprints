@@ -19,11 +19,6 @@ variable "vpc_id" {
   description = "VPC ID"
 }
 
-variable "cluster_size" {
-  description = "Number of nodes in cluster. *Ignored when `cluster_mode_enabled` == `true`*"
-  type        = number
-}
-
 variable "subnets" {
   description = "Subnet IDs"
   type        = list(string)
@@ -45,6 +40,13 @@ variable "engine_version" {
 }
 
 # Optional
+
+variable "cluster_size" {
+  description = "Number of nodes in cluster. *Ignored when `cluster_mode_enabled` == `true`*"
+  type        = number
+  default     = 1
+}
+
 variable "allowed_security_group_ids" {
   description = "List of security group IDs allowed to connect to the cache"
   type        = list(string)
