@@ -16,7 +16,7 @@ locals {
 
 module "ecs_service" {
   source  = "leonardobiffi/ecs-service/aws"
-  version = "1.5.3"
+  version = "1.6.0"
 
   name       = local.name
   subnet_ids = var.private_subnets
@@ -62,6 +62,7 @@ module "ecs_task_definition" {
   environment  = var.environment
   secrets      = concat(local.secrets, var.parameters)
   network_mode = var.task_network_mode
+  command      = var.command
 
   logConfiguration = {
     logDriver = "awslogs"

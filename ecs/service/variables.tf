@@ -165,6 +165,12 @@ variable "task_network_mode" {
   default     = "awsvpc"
 }
 
+variable "command" {
+  description = "The command that is passed to the container"
+  type        = list(string)
+  default     = []
+}
+
 variable "policy_statement" {
   description = "The policy statements to use in Task Role"
   type = list(object({
