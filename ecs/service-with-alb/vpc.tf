@@ -2,6 +2,8 @@ module "security_group_ecs" {
   source  = "terraform-aws-modules/security-group/aws"
   version = "~> 4.9"
 
+  count = var.create_security_group ? 1 : 0
+
   name        = "${local.name}-ecs"
   description = "Security group for ECS"
   vpc_id      = var.vpc_id

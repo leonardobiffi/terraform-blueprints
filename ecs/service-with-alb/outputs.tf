@@ -30,7 +30,7 @@ output "subnet_ids" {
 
 output "security_group_ids" {
   description = "The IDs of the security groups"
-  value       = [module.security_group_ecs.security_group_id]
+  value       = try([module.security_group_ecs[0].security_group_id], null)
 }
 
 output "ecs_tasks_role_arn" {

@@ -30,22 +30,24 @@ variable "target_port" {
   type        = number
 }
 
-variable "vpc_id" {
-  description = "The VPC ID to use"
-  type        = string
-}
-
-variable "private_subnets" {
-  description = "The private subnets to use"
-  type        = list(string)
-}
-
 variable "target_group_arn" {
   description = "The arn of the target group to point at the service containers."
   type        = string
 }
 
 # OPTIONAL
+
+variable "private_subnets" {
+  description = "The private subnets to use"
+  type        = list(string)
+  default     = []
+}
+
+variable "vpc_id" {
+  description = "The VPC ID to use"
+  type        = string
+  default     = null
+}
 
 variable "health_check_grace_period_seconds" {
   description = "The health check grace period seconds to use in Service"
@@ -222,6 +224,12 @@ variable "healthCheck" {
     startPeriod = optional(number)
   })
   default = {}
+}
+
+variable "create_security_group" {
+  description = "Whether to create a security group for the service"
+  type        = bool
+  default     = true
 }
 
 variable "multiples_target_groups" {
