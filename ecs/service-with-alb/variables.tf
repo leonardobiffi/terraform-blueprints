@@ -25,17 +25,18 @@ variable "container_port" {
   type        = number
 }
 
-variable "target_port" {
-  description = "The target port exposed in the container"
-  type        = number
-}
-
 variable "target_group_arn" {
   description = "The arn of the target group to point at the service containers."
   type        = string
 }
 
 # OPTIONAL
+
+variable "target_port" {
+  description = "The target port exposed in the container"
+  type        = number
+  default     = null
+}
 
 variable "private_subnets" {
   description = "The private subnets to use"
