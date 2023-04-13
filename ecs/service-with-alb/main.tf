@@ -71,6 +71,8 @@ module "ecs_task_definition" {
   environment  = var.environment
   secrets      = concat(local.secrets, local.parameters, var.parameters)
   network_mode = var.task_network_mode
+  command      = var.command
+  healthCheck  = var.healthCheck
 
   portMappings = [
     {

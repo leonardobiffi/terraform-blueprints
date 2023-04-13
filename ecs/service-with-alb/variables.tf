@@ -206,6 +206,24 @@ variable "task_network_mode" {
   default     = "awsvpc"
 }
 
+variable "command" {
+  description = "The command that is passed to the container"
+  type        = list(string)
+  default     = []
+}
+
+variable "healthCheck" {
+  description = "The health check command and interval"
+  type = object({
+    command     = optional(list(string))
+    interval    = optional(number)
+    timeout     = optional(number)
+    retries     = optional(number)
+    startPeriod = optional(number)
+  })
+  default = {}
+}
+
 variable "multiples_target_groups" {
   description = "The multiples target groups to attach to the service."
   type = list(object({

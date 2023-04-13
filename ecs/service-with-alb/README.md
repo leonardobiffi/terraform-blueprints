@@ -50,12 +50,14 @@
 | <a name="input_autoscaling_memory_target_value"></a> [autoscaling\_memory\_target\_value](#input\_autoscaling\_memory\_target\_value) | The memory target value in Autoscaling | `number` | `0` | no |
 | <a name="input_autoscaling_min_capacity"></a> [autoscaling\_min\_capacity](#input\_autoscaling\_min\_capacity) | Min Capacity in Autoscaling | `number` | `1` | no |
 | <a name="input_cluster_id"></a> [cluster\_id](#input\_cluster\_id) | The ECS cluster ID to use | `string` | n/a | yes |
+| <a name="input_command"></a> [command](#input\_command) | The command that is passed to the container | `list(string)` | `[]` | no |
 | <a name="input_container_port"></a> [container\_port](#input\_container\_port) | The port to expose in the container | `number` | n/a | yes |
 | <a name="input_cpu"></a> [cpu](#input\_cpu) | The amount of CPU to use in task | `number` | `256` | no |
 | <a name="input_desired_count"></a> [desired\_count](#input\_desired\_count) | The desired count of the service | `number` | `1` | no |
 | <a name="input_enable_execute_command"></a> [enable\_execute\_command](#input\_enable\_execute\_command) | Whether to enable execute command. Valid values are true or false. | `bool` | `true` | no |
 | <a name="input_env"></a> [env](#input\_env) | The environment to use | `string` | n/a | yes |
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment variables to use in Container | `list(map(string))` | `[]` | no |
+| <a name="input_healthCheck"></a> [healthCheck](#input\_healthCheck) | The health check command and interval | <pre>object({<br>    command     = optional(list(string))<br>    interval    = optional(number)<br>    timeout     = optional(number)<br>    retries     = optional(number)<br>    startPeriod = optional(number)<br>  })</pre> | `{}` | no |
 | <a name="input_health_check_grace_period_seconds"></a> [health\_check\_grace\_period\_seconds](#input\_health\_check\_grace\_period\_seconds) | The health check grace period seconds to use in Service | `number` | `0` | no |
 | <a name="input_ingress_cidr_blocks"></a> [ingress\_cidr\_blocks](#input\_ingress\_cidr\_blocks) | The ingress cidr blocks to use in Service | `list(string)` | `[]` | no |
 | <a name="input_ingress_rules"></a> [ingress\_rules](#input\_ingress\_rules) | The ingress rules to use in Service | `list(string)` | `[]` | no |
