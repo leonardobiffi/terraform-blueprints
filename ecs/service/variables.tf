@@ -171,6 +171,18 @@ variable "command" {
   default     = []
 }
 
+variable "healthCheck" {
+  description = "The health check command and interval"
+  type = object({
+    command     = optional(list(string))
+    interval    = optional(number)
+    timeout     = optional(number)
+    retries     = optional(number)
+    startPeriod = optional(number)
+  })
+  default = {}
+}
+
 variable "policy_statement" {
   description = "The policy statements to use in Task Role"
   type = list(object({

@@ -63,6 +63,7 @@ module "ecs_task_definition" {
   secrets      = concat(local.secrets, var.parameters)
   network_mode = var.task_network_mode
   command      = var.command
+  healthCheck  = var.healthCheck
 
   logConfiguration = {
     logDriver = "awslogs"
