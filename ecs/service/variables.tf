@@ -189,7 +189,7 @@ variable "healthCheck" {
     retries     = optional(number)
     startPeriod = optional(number)
   })
-  default = {}
+  default = null
 }
 
 variable "policy_statement" {

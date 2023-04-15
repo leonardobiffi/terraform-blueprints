@@ -224,7 +224,7 @@ variable "healthCheck" {
     retries     = optional(number)
     startPeriod = optional(number)
   })
-  default = {}
+  default = null
 }
 
 variable "create_security_group" {

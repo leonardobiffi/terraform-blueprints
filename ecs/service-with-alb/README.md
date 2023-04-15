@@ -58,7 +58,7 @@
 | <a name="input_enable_execute_command"></a> [enable\_execute\_command](#input\_enable\_execute\_command) | Whether to enable execute command. Valid values are true or false. | `bool` | `true` | no |
 | <a name="input_env"></a> [env](#input\_env) | The environment to use | `string` | n/a | yes |
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment variables to use in Container | `list(map(string))` | `[]` | no |
-| <a name="input_healthCheck"></a> [healthCheck](#input\_healthCheck) | The health check command and interval | <pre>object({<br>    command     = optional(list(string))<br>    interval    = optional(number)<br>    timeout     = optional(number)<br>    retries     = optional(number)<br>    startPeriod = optional(number)<br>  })</pre> | `{}` | no |
+| <a name="input_healthCheck"></a> [healthCheck](#input\_healthCheck) | The health check command and interval | <pre>object({<br>    command     = optional(list(string))<br>    interval    = optional(number)<br>    timeout     = optional(number)<br>    retries     = optional(number)<br>    startPeriod = optional(number)<br>  })</pre> | `null` | no |
 | <a name="input_health_check_grace_period_seconds"></a> [health\_check\_grace\_period\_seconds](#input\_health\_check\_grace\_period\_seconds) | The health check grace period seconds to use in Service | `number` | `0` | no |
 | <a name="input_ingress_cidr_blocks"></a> [ingress\_cidr\_blocks](#input\_ingress\_cidr\_blocks) | The ingress cidr blocks to use in Service | `list(string)` | `[]` | no |
 | <a name="input_ingress_rules"></a> [ingress\_rules](#input\_ingress\_rules) | The ingress rules to use in Service | `list(string)` | `[]` | no |
