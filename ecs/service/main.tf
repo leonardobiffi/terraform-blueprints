@@ -60,7 +60,7 @@ module "ecs_task_definition" {
   requires_compatibilities = var.launch_type == "EC2" ? ["EC2"] : ["FARGATE"]
 
   environment  = var.environment
-  secrets      = concat(local.secrets, var.parameters)
+  secrets      = concat(local.secrets, local.parameters, var.parameters)
   network_mode = var.task_network_mode
   command      = var.command
   healthCheck  = var.healthCheck

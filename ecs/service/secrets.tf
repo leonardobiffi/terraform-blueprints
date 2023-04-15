@@ -13,3 +13,15 @@ locals {
     ]
   ])
 }
+
+# Parameters Store
+locals {
+  parameters = flatten([
+    for p in var.parameters_by_path : [
+      for k in p.keys : {
+        name      = k
+        valueFrom = "${p.name}/${k}"
+      }
+    ]
+  ])
+}

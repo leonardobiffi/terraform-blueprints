@@ -64,6 +64,7 @@
 | <a name="input_memory"></a> [memory](#input\_memory) | The amount of memory to use in task | `number` | `512` | no |
 | <a name="input_name"></a> [name](#input\_name) | The name of the resource | `string` | n/a | yes |
 | <a name="input_parameters"></a> [parameters](#input\_parameters) | List of parameters to use in Container | <pre>list(object({<br>    name      = string<br>    valueFrom = string<br>  }))</pre> | `[]` | no |
+| <a name="input_parameters_by_path"></a> [parameters\_by\_path](#input\_parameters\_by\_path) | The Path to use in parameters | <pre>list(object({<br>    name = string<br>    keys = list(string)<br>  }))</pre> | `[]` | no |
 | <a name="input_platform_version"></a> [platform\_version](#input\_platform\_version) | The platform version to use for the ECS | `string` | `"1.4.0"` | no |
 | <a name="input_policy_statement"></a> [policy\_statement](#input\_policy\_statement) | The policy statements to use in Task Role | <pre>list(object({<br>    sid       = optional(string)<br>    effect    = string<br>    actions   = list(string)<br>    resources = list(string)<br>  }))</pre> | `[]` | no |
 | <a name="input_private_subnets"></a> [private\_subnets](#input\_private\_subnets) | The private subnets to use | `list(string)` | n/a | yes |

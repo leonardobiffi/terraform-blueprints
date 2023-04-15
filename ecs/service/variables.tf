@@ -123,6 +123,15 @@ variable "parameters" {
   default = []
 }
 
+variable "parameters_by_path" {
+  description = "The Path to use in parameters"
+  type = list(object({
+    name = string
+    keys = list(string)
+  }))
+  default = []
+}
+
 variable "task_role_arn" {
   description = "The short name or full Amazon Resource Name (ARN) of the IAM role that containers in this task can assume"
   type        = string
