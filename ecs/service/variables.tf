@@ -209,6 +209,12 @@ variable "mountPoints" {
   type        = list(any)
 }
 
+variable "volumes" {
+  default     = []
+  description = "A list of volume definitions in JSON format that containers in your task may use"
+  type        = list(any)
+}
+
 variable "schedule_tag" {
   description = "The tag to use to schedule start and stop of the service"
   type        = map(string)

@@ -85,6 +85,7 @@
 | <a name="input_target_port"></a> [target\_port](#input\_target\_port) | The target port exposed in the container | `number` | `null` | no |
 | <a name="input_task_network_mode"></a> [task\_network\_mode](#input\_task\_network\_mode) | The network mode used for the containers in the task. | `string` | `"awsvpc"` | no |
 | <a name="input_task_role_arn"></a> [task\_role\_arn](#input\_task\_role\_arn) | The short name or full Amazon Resource Name (ARN) of the IAM role that containers in this task can assume | `string` | `null` | no |
+| <a name="input_volumes"></a> [volumes](#input\_volumes) | A list of volume definitions in JSON format that containers in your task may use | `list(any)` | `[]` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | The VPC ID to use | `string` | `null` | no |
 
 ## Outputs

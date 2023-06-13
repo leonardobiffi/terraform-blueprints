@@ -64,6 +64,7 @@ module "ecs_task_definition" {
   command      = var.command
   healthCheck  = var.healthCheck
   mountPoints  = var.mountPoints
+  volumes      = var.volumes
 
   logConfiguration = {
     logDriver = "awslogs"
