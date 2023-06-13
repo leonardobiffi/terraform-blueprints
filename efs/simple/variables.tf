@@ -124,7 +124,7 @@ variable "enable_backup_policy" {
 }
 
 variable "create_replication_configuration" {
-  description = "Enable replication configuration"
+  description = "Enable replication configuration creation"
   type        = bool
   default     = false
 }

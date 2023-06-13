@@ -31,8 +31,7 @@ module "efs" {
   performance_mode                = var.performance_mode
   throughput_mode                 = var.throughput_mode
   provisioned_throughput_in_mibps = var.provisioned_throughput_in_mibps
-
-  lifecycle_policy = var.lifecycle_policy
+  lifecycle_policy                = var.lifecycle_policy
 
   # File system policy
   attach_policy     = var.attach_policy

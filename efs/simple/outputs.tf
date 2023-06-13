@@ -4,7 +4,7 @@ output "arn" {
 }
 
 output "id" {
-  description = "The ID that identifies the file system (e.g., `fs-ccfc0d65`)"
+  description = "The ID that identifies the file system"
   value       = module.efs.id
 }
 
