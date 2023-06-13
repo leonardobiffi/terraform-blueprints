@@ -47,8 +47,7 @@ data "aws_ecs_task_definition" "main" {
 }
 
 module "ecs_task_definition" {
-  source  = "mongodb/ecs-task-definition/aws"
-  version = "2.1.5"
+  source = "git@github.com:mongodb/terraform-aws-ecs-task-definition.git?ref=master"
 
   name                     = local.name
   family                   = local.name
@@ -64,6 +63,7 @@ module "ecs_task_definition" {
   network_mode = var.task_network_mode
   command      = var.command
   healthCheck  = var.healthCheck
+  mountPoints  = var.mountPoints
 
   logConfiguration = {
     logDriver = "awslogs"

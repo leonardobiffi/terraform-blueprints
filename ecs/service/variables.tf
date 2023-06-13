@@ -203,6 +203,12 @@ variable "policy_statement" {
   default = []
 }
 
+variable "mountPoints" {
+  default     = []
+  description = "The mount points for data volumes in your container"
+  type        = list(any)
+}
+
 variable "schedule_tag" {
   description = "The tag to use to schedule start and stop of the service"
   type        = map(string)
