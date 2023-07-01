@@ -27,6 +27,12 @@ variable "domain_name" {
 
 # Optional
 
+variable "default_root_object" {
+  description = "The default root object to use"
+  type        = string
+  default     = "index.html"
+}
+
 variable "subdomain" {
   description = "The subdomain to use"
   type        = string
