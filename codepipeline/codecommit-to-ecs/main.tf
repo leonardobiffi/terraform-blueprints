@@ -270,6 +270,8 @@ resource "aws_cloudwatch_event_rule" "main" {
       }
     }
   EOF
+
+  tags = local.tags
 }
 
 data "aws_codecommit_repository" "main" {
