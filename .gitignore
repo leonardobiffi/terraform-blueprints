@@ -1,1 +1,9 @@
-.github/workflow
+.terraform*
+.terraform.lock.hcl
+.terraform.tfstate*
+terraform.tfstate*
+variables.auto.tfvars
+
+.vscode
+.idea
+.DS_Store
