@@ -36,8 +36,9 @@ resource "aws_codepipeline" "default" {
       output_artifacts = ["code"]
 
       configuration = {
-        RepositoryName = var.repo_name
-        BranchName     = var.repo_branch
+        RepositoryName       = var.repo_name
+        BranchName           = var.repo_branch
+        PollForSourceChanges = false
       }
     }
   }
