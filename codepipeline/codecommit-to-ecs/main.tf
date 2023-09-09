@@ -252,3 +252,72 @@ data "aws_iam_policy_document" "codebuild" {
     effect    = "Allow"
   }
 }
+
+# Cloudwatch Event
+resource "aws_cloudwatch_event_rule" "main" {
+  name        = local.name
+  description = "Amazon CloudWatch Events rule to automatically start your pipeline when a change occurs in the AWS CodeCommit source repository and branch"
+
+  event_pattern = <<-EOF
+    {
+      "source": ["aws.codecommit"],
+      "detail-type": ["CodeCommit Repository State Change"],
+      "resources": ["${data.aws_codecommit_repository.main.arn}"],
+      "detail": {
+        "event": ["referenceCreated", "referenceUpdated"],
+        "referenceType": ["branch"],
+        "referenceName": ["${var.repo_branch}"]
+      }
+    }
+  EOF
+}
+
+data "aws_codecommit_repository" "main" {
+  repository_name = var.repo_name
+}
+
+resource "aws_cloudwatch_event_target" "main" {
+  rule     = aws_cloudwatch_event_rule.main.name
+  arn      = aws_codepipeline.default.arn
+  role_arn = aws_iam_role.cw_rule.arn
+}
+
+data "aws_iam_policy_document" "cw_rule" {
+  statement {
+    effect = "Allow"
+
+    principals {
+      type        = "Service"
+      identifiers = ["events.amazonaws.com"]
+    }
+
+    actions = ["sts:AssumeRole"]
+  }
+}
+
+resource "aws_iam_role" "cw_rule" {
+  name               = "cwe-role-${local.name}"
+  assume_role_policy = data.aws_iam_policy_document.cw_rule.json
+}
+
+data "aws_iam_policy_document" "cw_rule_policy" {
+  statement {
+    effect = "Allow"
+    actions = [
+      "codepipeline:StartPipelineExecution"
+    ]
+    resources = [
+      aws_codepipeline.default.arn
+    ]
+  }
+}
+
+resource "aws_iam_policy" "cw_rule_policy" {
+  name   = "cwe-policy-${local.name}"
+  policy = data.aws_iam_policy_document.cw_rule_policy.json
+}
+
+resource "aws_iam_role_policy_attachment" "cw_rule" {
+  role       = aws_iam_role.cw_rule.name
+  policy_arn = aws_iam_policy.cw_rule_policy.arn
+}
