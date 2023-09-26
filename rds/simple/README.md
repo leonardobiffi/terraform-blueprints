@@ -43,6 +43,7 @@ No resources.
 | <a name="input_ingress_cidr_blocks"></a> [ingress\_cidr\_blocks](#input\_ingress\_cidr\_blocks) | The RDS ingress CIDR blocks to use | `list(string)` | n/a | yes |
 | <a name="input_ingress_rules"></a> [ingress\_rules](#input\_ingress\_rules) | The RDS ingress rules to use | `list(string)` | n/a | yes |
 | <a name="input_instance_class"></a> [instance\_class](#input\_instance\_class) | The RDS instance class to use | `string` | `"db.t3.micro"` | no |
+| <a name="input_iops"></a> [iops](#input\_iops) | The amount of provisioned IOPS. Setting this implies a storage\_type of 'io1' or `gp3`. See `notes` for limitations regarding this variable for `gp3` | `number` | `null` | no |
 | <a name="input_maintenance_window"></a> [maintenance\_window](#input\_maintenance\_window) | The RDS maintenance window to use | `string` | `"Sun:00:00-Sun:03:00"` | no |
 | <a name="input_major_engine_version"></a> [major\_engine\_version](#input\_major\_engine\_version) | The RDS parameter group major engine version to use | `string` | n/a | yes |
 | <a name="input_max_allocated_storage"></a> [max\_allocated\_storage](#input\_max\_allocated\_storage) | The RDS max allocated storage to use | `number` | n/a | yes |

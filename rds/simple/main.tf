@@ -31,6 +31,7 @@ module "rds" {
   allocated_storage     = var.allocated_storage
   max_allocated_storage = var.max_allocated_storage
   storage_type          = var.storage_type
+  iops                  = var.iops
 
   db_name                = var.db_name
   username               = var.username

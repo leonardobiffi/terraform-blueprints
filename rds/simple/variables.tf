@@ -47,6 +47,12 @@ variable "storage_type" {
   default     = null
 }
 
+variable "iops" {
+  description = "The amount of provisioned IOPS. Setting this implies a storage_type of 'io1' or `gp3`. See `notes` for limitations regarding this variable for `gp3`"
+  type        = number
+  default     = null
+}
+
 variable "db_name" {
   description = "The RDS database name to use"
   type        = string
