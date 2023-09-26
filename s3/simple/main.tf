@@ -26,7 +26,7 @@ module "s3" {
   force_destroy  = var.force_destroy
   lifecycle_rule = var.lifecycle_rule
 
-  attach_policy = true
+  attach_policy = var.policy == null ? false : true
   policy        = var.policy
 
   # S3 bucket-level Public Access Block configuration
