@@ -31,6 +31,7 @@ No resources.
 | <a name="input_allocated_storage"></a> [allocated\_storage](#input\_allocated\_storage) | The RDS allocated storage to use | `number` | n/a | yes |
 | <a name="input_app"></a> [app](#input\_app) | The name of the app | `string` | n/a | yes |
 | <a name="input_apply_immediately"></a> [apply\_immediately](#input\_apply\_immediately) | The RDS parameter group apply immediately to use | `bool` | `false` | no |
+| <a name="input_backup_retention_period"></a> [backup\_retention\_period](#input\_backup\_retention\_period) | The days to retain backups for | `number` | `7` | no |
 | <a name="input_backup_window"></a> [backup\_window](#input\_backup\_window) | The RDS backup window to use | `string` | `"03:00-06:00"` | no |
 | <a name="input_db_name"></a> [db\_name](#input\_db\_name) | The RDS database name to use | `string` | n/a | yes |
 | <a name="input_deletion_protection"></a> [deletion\_protection](#input\_deletion\_protection) | The RDS parameter group deletion protection to use | `bool` | `false` | no |

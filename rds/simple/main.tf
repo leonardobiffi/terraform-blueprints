@@ -39,8 +39,9 @@ module "rds" {
 
   vpc_security_group_ids = [module.security_group.security_group_id]
 
-  maintenance_window = var.maintenance_window
-  backup_window      = var.backup_window
+  maintenance_window      = var.maintenance_window
+  backup_window           = var.backup_window
+  backup_retention_period = var.backup_retention_period
 
   # DB subnet group
   create_db_subnet_group = true

@@ -140,6 +140,12 @@ variable "backup_window" {
   default     = "03:00-06:00"
 }
 
+variable "backup_retention_period" {
+  description = "The days to retain backups for"
+  type        = number
+  default     = 7
+}
+
 variable "schedule_tag" {
   description = "The tag to use to schedule start and stop of the service"
   type        = map(string)
