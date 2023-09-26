@@ -87,6 +87,18 @@ variable "acm_certificate_arn" {
   default     = null
 }
 
+variable "minimum_protocol_version" {
+  description = "The minimum protocol version to use"
+  type        = string
+  default     = "TLSv1.2_2021"
+}
+
+variable "http_version" {
+  description = "The maximum HTTP version to support on the distribution. Allowed values are http1.1, http2, http2and3, and http3. The default is http2."
+  type        = string
+  default     = "http2"
+}
+
 variable "tags" {
   description = "Additional tags to use"
   type        = map(string)
