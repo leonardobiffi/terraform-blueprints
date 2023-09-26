@@ -41,6 +41,12 @@ variable "max_allocated_storage" {
   type        = number
 }
 
+variable "storage_type" {
+  description = "One of 'standard' (magnetic), 'gp2' (general purpose SSD), 'gp3' (new generation of general purpose SSD), or 'io1' (provisioned IOPS SSD). The default is 'io1' if iops is specified, 'gp2' if not. If you specify 'io1' or 'gp3' , you must also include a value for the 'iops' parameter"
+  type        = string
+  default     = null
+}
+
 variable "db_name" {
   description = "The RDS database name to use"
   type        = string
