@@ -62,6 +62,12 @@ variable "extra_ssl_certs" {
   default     = []
 }
 
+variable "idle_timeout" {
+  description = "The time in seconds that the connection is allowed to be idle."
+  type        = number
+  default     = 60
+}
+
 variable "tags" {
   description = "Additional tags to use"
   type        = map(string)

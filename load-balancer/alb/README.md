@@ -33,6 +33,7 @@ No resources.
 | <a name="input_http_tcp_listeners"></a> [http\_tcp\_listeners](#input\_http\_tcp\_listeners) | The HTTP listeners to use | `any` | `[]` | no |
 | <a name="input_https_listener_rules"></a> [https\_listener\_rules](#input\_https\_listener\_rules) | The HTTPS listener rules to use | `any` | `[]` | no |
 | <a name="input_https_listeners"></a> [https\_listeners](#input\_https\_listeners) | The HTTP listeners to use | `any` | `[]` | no |
+| <a name="input_idle_timeout"></a> [idle\_timeout](#input\_idle\_timeout) | The time in seconds that the connection is allowed to be idle. | `number` | `60` | no |
 | <a name="input_name"></a> [name](#input\_name) | The name of the app | `string` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | The AWS region to use | `string` | n/a | yes |
 | <a name="input_subnets"></a> [subnets](#input\_subnets) | The subnets to use | `list(string)` | n/a | yes |

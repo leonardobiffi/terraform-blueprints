@@ -24,6 +24,7 @@ module "alb" {
   vpc_id          = var.vpc_id
   subnets         = var.subnets
   security_groups = [module.security_group_elb.security_group_id]
+  idle_timeout    = var.idle_timeout
 
   target_groups           = var.target_groups
   http_tcp_listeners      = var.http_tcp_listeners
