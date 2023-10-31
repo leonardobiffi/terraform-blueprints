@@ -20,7 +20,7 @@ locals {
 
 module "rds" {
   source  = "terraform-aws-modules/rds/aws"
-  version = "5.0.3"
+  version = "~> 5.0"
 
   identifier = local.name
 
@@ -43,6 +43,7 @@ module "rds" {
   maintenance_window      = var.maintenance_window
   backup_window           = var.backup_window
   backup_retention_period = var.backup_retention_period
+  ca_cert_identifier      = var.ca_cert_identifier
 
   # DB subnet group
   create_db_subnet_group = true

@@ -152,6 +152,12 @@ variable "backup_retention_period" {
   default     = 7
 }
 
+variable "ca_cert_identifier" {
+  description = "Specifies the identifier of the CA certificate for the DB instance"
+  type        = string
+  default     = "rds-ca-rsa2048-g1"
+}
+
 variable "schedule_tag" {
   description = "The tag to use to schedule start and stop of the service"
   type        = map(string)

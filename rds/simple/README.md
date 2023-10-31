@@ -16,7 +16,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_rds"></a> [rds](#module\_rds) | terraform-aws-modules/rds/aws | 5.0.3 |
+| <a name="module_rds"></a> [rds](#module\_rds) | terraform-aws-modules/rds/aws | ~> 5.0 |
 | <a name="module_security_group"></a> [security\_group](#module\_security\_group) | terraform-aws-modules/security-group/aws | ~> 4.9 |
 | <a name="module_store_write"></a> [store\_write](#module\_store\_write) | cloudposse/ssm-parameter-store/aws | 0.10.0 |
 
@@ -33,6 +33,7 @@ No resources.
 | <a name="input_apply_immediately"></a> [apply\_immediately](#input\_apply\_immediately) | The RDS parameter group apply immediately to use | `bool` | `false` | no |
 | <a name="input_backup_retention_period"></a> [backup\_retention\_period](#input\_backup\_retention\_period) | The days to retain backups for | `number` | `7` | no |
 | <a name="input_backup_window"></a> [backup\_window](#input\_backup\_window) | The RDS backup window to use | `string` | `"03:00-06:00"` | no |
+| <a name="input_ca_cert_identifier"></a> [ca\_cert\_identifier](#input\_ca\_cert\_identifier) | Specifies the identifier of the CA certificate for the DB instance | `string` | `"rds-ca-rsa2048-g1"` | no |
 | <a name="input_db_name"></a> [db\_name](#input\_db\_name) | The RDS database name to use | `string` | n/a | yes |
 | <a name="input_deletion_protection"></a> [deletion\_protection](#input\_deletion\_protection) | The RDS parameter group deletion protection to use | `bool` | `false` | no |
 | <a name="input_egress_rules"></a> [egress\_rules](#input\_egress\_rules) | The RDS egress rules to use | `list(string)` | n/a | yes |
