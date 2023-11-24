@@ -56,10 +56,13 @@
 | <a name="input_app"></a> [app](#input\_app) | The name of the app | `string` | n/a | yes |
 | <a name="input_build_compute_type"></a> [build\_compute\_type](#input\_build\_compute\_type) | The compute type to use in CodeBuild | `string` | `"BUILD_GENERAL1_SMALL"` | no |
 | <a name="input_build_image"></a> [build\_image](#input\_build\_image) | The name of the build image to use | `string` | `"aws/codebuild/standard:5.0"` | no |
+| <a name="input_cloudfront_id"></a> [cloudfront\_id](#input\_cloudfront\_id) | The ID of the CloudFront distribution. Required if creating an invalidation stage | `string` | `null` | no |
 | <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | The name of the ECS cluster | `string` | `null` | no |
+| <a name="input_create_invalidation_stage"></a> [create\_invalidation\_stage](#input\_create\_invalidation\_stage) | Create an invalidation stage | `bool` | `false` | no |
 | <a name="input_ecr_repository_name"></a> [ecr\_repository\_name](#input\_ecr\_repository\_name) | The name of the ECR repository | `string` | n/a | yes |
 | <a name="input_env"></a> [env](#input\_env) | The environment to set | `string` | n/a | yes |
 | <a name="input_environment_build_variables"></a> [environment\_build\_variables](#input\_environment\_build\_variables) | The environment variables to use in CodeBuild | `list(map(string))` | `[]` | no |
+| <a name="input_invalidation_function_name"></a> [invalidation\_function\_name](#input\_invalidation\_function\_name) | The name of the invalidation function | `string` | `null` | no |
 | <a name="input_region"></a> [region](#input\_region) | The AWS region to use | `string` | `"us-east-1"` | no |
 | <a name="input_repo_branch"></a> [repo\_branch](#input\_repo\_branch) | The branch of the repository | `string` | n/a | yes |
 | <a name="input_repo_name"></a> [repo\_name](#input\_repo\_name) | The name of the repository | `string` | n/a | yes |

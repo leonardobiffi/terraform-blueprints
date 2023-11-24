@@ -86,6 +86,24 @@ variable "additional_deploy_action" {
   default = []
 }
 
+variable "create_invalidation_stage" {
+  description = "Create an invalidation stage"
+  type        = bool
+  default     = false
+}
+
+variable "invalidation_function_name" {
+  description = "The name of the invalidation function"
+  type        = string
+  default     = null
+}
+
+variable "cloudfront_id" {
+  description = "The ID of the CloudFront distribution. Required if creating an invalidation stage"
+  type        = string
+  default     = null
+}
+
 variable "tags" {
   description = "Additional tags to use"
   type        = map(string)

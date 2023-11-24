@@ -96,6 +96,25 @@ resource "aws_codepipeline" "default" {
     }
   }
 
+  dynamic "stage" {
+    for_each = var.create_invalidation_stage ? ["Invalidate"] : []
+    content {
+      name = "Invalidate"
+      action {
+        name     = "Invalidate"
+        category = "Invoke"
+        owner    = "AWS"
+        provider = "Lambda"
+        version  = "1"
+
+        configuration = {
+          FunctionName   = var.invalidation_function_name
+          UserParameters = "{\"distributionId\": \"${var.cloudfront_id}\", \"objectPaths\": [\"/*\"]}"
+        }
+      }
+    }
+  }
+
   depends_on = [
     aws_iam_role_policy_attachment.default,
     aws_iam_role_policy_attachment.s3,
@@ -196,7 +215,8 @@ data "aws_iam_policy_document" "default" {
       "s3:*",
       "sns:*",
       "ecs:*",
-      "iam:PassRole"
+      "iam:PassRole",
+      "lambda:InvokeFunction"
     ]
 
     resources = ["*"]
